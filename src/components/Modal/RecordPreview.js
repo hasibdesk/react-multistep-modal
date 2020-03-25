@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import VideoRecorder from 'react-video-recorder';
+import React, { Component } from "react";
+import VideoRecorder from "react-video-recorder";
 
 export default class RecordPreview extends Component {
   componentDidMount() {
-    this.props.modalHeader('Preview Your Video');
+    this.props.modalHeader("Preview Your Video");
   }
   continue = e => {
     e.preventDefault();
@@ -24,9 +24,9 @@ export default class RecordPreview extends Component {
           </div>
         </div>
         <div className="nextPrevBtn">
-          <button className="btn btn-blue-dark redo" onClick={this.back}>
+          {/* <button className="btn btn-blue-dark redo" onClick={this.back}>
             Redo
-          </button>
+          </button> */}
           <button className="next btn btn-blue-dark" onClick={this.continue}>
             Good
           </button>
