@@ -1,11 +1,19 @@
-import React, { Component, Fragment } from 'react';
-import { Modal } from 'react-bootstrap';
-import RecordVideo from './Modal/RecordVideo';
-import RecordPreview from './Modal/RecordPreview';
-import VideoDetail from './Modal/VideoDetail';
+import React, { Component, Fragment } from "react";
+import { Modal } from "react-bootstrap";
+import RecordVideo from "./Modal/RecordVideo";
+import RecordPreview from "./Modal/RecordPreview";
+import VideoDetail from "./Modal/VideoDetail";
 
 export class MainModal extends Component {
-  state = { step: 1, modalHeader: '', title: '', description: '' };
+  state = {
+    step: 1,
+    modalHeader: "",
+    title: "",
+    description: "",
+    videoBlob: "",
+    isRecode: true,
+    recodeIsOpen: false
+  };
 
   // Process to Next Step
   nextStep = () => {
@@ -29,18 +37,30 @@ export class MainModal extends Component {
 
   render() {
     const { step } = this.state;
-    const { title, description } = this.state;
-    const values = { title, description };
+    const {
+      title,
+      description,
+      videoBlob,
+      isRecode,
+      recodeIsOpen
+    } = this.state;
+    const values = { title, description, videoBlob, isRecode, recodeIsOpen };
 
     switch (step) {
       case 1:
         return (
           <Fragment>
             <Modal.Header closeButton>
-              <Modal.Title id="example-custom-modal-styling-title">{this.state.modalHeader}</Modal.Title>
+              <Modal.Title id="example-custom-modal-styling-title">
+                {this.state.modalHeader}
+              </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <RecordVideo modalHeader={title => this.modalHeader(title)} nextStep={this.nextStep} />
+              <RecordVideo
+                values={values}
+                modalHeader={title => this.modalHeader(title)}
+                nextStep={this.nextStep}
+              />
             </Modal.Body>
           </Fragment>
         );
@@ -48,10 +68,18 @@ export class MainModal extends Component {
         return (
           <Fragment>
             <Modal.Header closeButton>
-              <Modal.Title id="example-custom-modal-styling-title">{this.state.modalHeader}</Modal.Title>
+              <Modal.Title id="example-custom-modal-styling-title">
+                {this.state.modalHeader}
+              </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <RecordPreview modalHeader={title => this.modalHeader(title)} nextStep={this.nextStep} prevStep={this.prevStep} />;
+              <RecordPreview
+                values={values}
+                modalHeader={title => this.modalHeader(title)}
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+              />
+              ;
             </Modal.Body>
           </Fragment>
         );
@@ -59,10 +87,17 @@ export class MainModal extends Component {
         return (
           <Fragment>
             <Modal.Header closeButton>
-              <Modal.Title id="example-custom-modal-styling-title">{this.state.modalHeader}</Modal.Title>
+              <Modal.Title id="example-custom-modal-styling-title">
+                {this.state.modalHeader}
+              </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <VideoDetail handleChange={this.handleChange} values={values} modalHeader={title => this.modalHeader(title)} />;
+              <VideoDetail
+                handleChange={this.handleChange}
+                values={values}
+                modalHeader={title => this.modalHeader(title)}
+              />
+              ;
             </Modal.Body>
           </Fragment>
         );
@@ -70,10 +105,15 @@ export class MainModal extends Component {
         return (
           <Fragment>
             <Modal.Header closeButton>
-              <Modal.Title id="example-custom-modal-styling-title">{this.state.modalHeader}</Modal.Title>
+              <Modal.Title id="example-custom-modal-styling-title">
+                {this.state.modalHeader}
+              </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <RecordVideo modalHeader={title => this.modalHeader(title)} nextStep={this.nextStep} />
+              <RecordVideo
+                modalHeader={title => this.modalHeader(title)}
+                nextStep={this.nextStep}
+              />
             </Modal.Body>
           </Fragment>
         );
