@@ -1,38 +1,248 @@
-.App {
+body {
+  background: #3e138a;
+}
+.modal-dialog {
+  max-width: 800px !important;
+}
+.close span {
+  border: 1px solid #ddd;
+  display: block;
+  padding: 5px;
+  border-radius: 50px;
+  line-height: 25px;
+  background: #ddd;
+  height: 40px;
+  width: 40px;
+}
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  box-shadow: 0 1px 10px rgba(158, 158, 158, 0.23) !important;
+  border-bottom: none;
+  border-top-left-radius: none;
+  border-top-right-radius: none;
+}
+.uploadFormWrapper {
+  position: relative;
+  background: #3e138a;
+  padding: 80px 0px;
+  height: 100vh;
+}
+.uploadForm {
+  max-width: 100%;
+  width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.uploadIcon img {
+  max-width: 100%;
+  width: 150px;
+  margin: 0 auto;
+  padding-top: 110px;
+}
+
+.uploadBTN {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+.uploadBTN h4 {
+  font-weight: 700;
+}
+
+.uploadBTN p {
+  color: #ddd;
+}
+
+button#fileUpload {
+  background: #3f51b5;
+  color: #fff;
+  padding: 10px 25px;
+}
+.uploadBTN.recordBtn {
+  padding-top: 30px;
+}
+.uploadBTN.recordBtn h4 {
+  padding-bottom: 15px;
+}
+
+.uploadForm.btn-group.text-center {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
+
+.uploadForm.btn-group.text-center .btn.btn-blue-dark {
+  background: #673ab7;
+  margin: 15px;
+  border-radius: 5px !important;
+  color: #fff;
+}
+
+/*Modal CSS*/
+.modal-window {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 55%;
+  z-index: -99;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s linear all;
+}
+.modal-window.modal-open {
+  top: 50%;
+  z-index: 9;
+  opacity: 1;
+  visibility: visible;
+}
+/*Step Form*/
+.first_step .row {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.preview_col_img {
+  position: relative;
+}
+
+.prevIcon {
+  position: absolute;
+  z-index: 999;
+  width: 50px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+span.copyIocn img {
+  width: 15px;
+  margin-left: 4px;
+  margin-top: -3px;
+}
+
+a.play_icon img {
+  width: 50px;
+}
+.preview_meta {
+  background: rgba(221, 221, 221, 0.17);
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-top: 0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.preview_meta a {
+  color: #202095;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+}
+.preview_meta h6 {
+  margin-bottom: -4px;
+  font-size: 13px;
+  color: #868686;
+}
+p.fileName {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+h6.title_right_top {
+  font-weight: 700;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.prevImg {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
+}
+
+.first_step h5 {
+  font-weight: 700;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9e9e9e;
+}
+
+textarea.form-control {
+  height: 100px;
+}
+
+p.addionalText {
+  font-size: 12px;
+  line-height: initial;
+  color: #9e9e9e;
+  font-weight: 500;
+}
+
+p.addionalText a {
+  font-size: 14px;
+  color: #202095;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nextPrevBtn {
+  background: #fff;
+  overflow: hidden;
+  padding: 6px 0px;
+}
+
+button.next.btn.btn-blue-dark {
+  background: #3f51b5;
+  color: #fff;
+  padding: 8px 15px;
+  margin: 15px 25px;
+  float: right;
+  font-size: 15px;
+}
+
+.video_thumbnail {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.first-image img {
+  max-height: 95px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*Preview*/
+.preview_video_file {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+.preview_video_file video {
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button.btn.btn-blue-dark.redo {
+  background: #3f51b5;
+  color: #fff;
+  padding: 8px 15px;
+  margin: 15px 25px;
+  font-size: 15px;
+  float: left;
 }

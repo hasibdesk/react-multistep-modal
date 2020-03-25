@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, Fragment } from 'react';
+import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
+import { MainModal } from './components/MainModal';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [show, setShow] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Container>
+        <Row>
+          <Col className="h-100 text-center mt-5 pt-5">
+            <Button variant="light" onClick={() => setShow(true)}>
+              Record Video
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+
+      <Modal
+        show={show}
+        onHide={() => setShow(false)}
+        dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
+        backdrop="static"
+        centered
+      >
+        <MainModal />
+      </Modal>
+    </Fragment>
   );
-}
+};
 
 export default App;
