@@ -48,7 +48,7 @@ export default class VideoDetail extends Component {
           <div className="tabbedStepForm">
             <div className="first_step">
               <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-8 order-last">
                   <h5>Details</h5>
                   <form>
                     <div className="form-group">
@@ -106,7 +106,7 @@ export default class VideoDetail extends Component {
                     </Modal>
                   </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-4 order-first">
                   <div className="right_col">
                     <h6 className="title_right_top">Preview</h6>
                     <div className="preview_col">
