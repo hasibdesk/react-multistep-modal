@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import VideoRecorder from "react-video-recorder";
-import { Player } from "video-react";
 export default class RecordPreview extends Component {
-  state = {
-    videoBlob: "",
-    recodeIsOpen: false,
-    isRecode: false
-  };
-  componentDidMount() {
-    this.props.modalHeader("Preview Your Video");
-  }
+  state = { videoBlob: "", good: false };
+  componentDidMount = () => this.props.modalHeader("Preview Your Video");
+
   continue = e => {
     e.preventDefault();
     this.props.handleVideo(this.state.videoBlob);
@@ -25,46 +19,26 @@ export default class RecordPreview extends Component {
         <div className="uploadMainContent">
           <div className="preview_video">
             <div className="preview_video_file">
-              {this.state.recodeIsOpen !== true ? (
-                <VideoRecorder
-                  isOnInitially
-                  showReplayControls
-                  replayVideoAutoplayAndLoopOff
-                  isReplayVideoInitiallyMuted={false}
-                  onRecordingComplete={videoBlob => {
-                    this.setState({ videoBlob: videoBlob });
-                    this.setState({ recodeIsOpen: false, isRecode: false });
-                  }}
-                />
-              ) : (
-                <div>False</div>
-              )}
-              {this.state.recodeIsOpen !== true ? (
-                <VideoRecorder
-                  isOnInitially
-                  showReplayControls
-                  replayVideoAutoplayAndLoopOff
-                  isReplayVideoInitiallyMuted={false}
-                  onRecordingComplete={videoBlob => {
-                    this.setState({ videoBlob: videoBlob });
-                    this.setState({ recodeIsOpen: false, isRecode: false });
-                  }}
-                />
-              ) : (
-                <Player>
-                  <source src={URL.createObjectURL(this.state.videoBlob)} />
-                </Player>
-              )}
+              <VideoRecorder
+                isOnInitially
+                showReplayControls
+                replayVideoAutoplayAndLoopOff
+                isReplayVideoInitiallyMuted={false}
+                onRecordingComplete={videoBlob => {
+                  this.setState({ good: true });
+                  this.setState({ videoBlob: videoBlob });
+                  this.setState({ recodeIsOpen: false, isRecode: false });
+                }}
+              />
             </div>
           </div>
         </div>
         <div className="nextPrevBtn">
-          {/* <button className="btn btn-blue-dark redo" onClick={this.back}>
-            Redo
-          </button> */}
-          <button className="next btn btn-blue-dark" onClick={this.continue}>
-            Good
-          </button>
+          {this.state.good === true ? (
+            <button className="next btn btn-blue-dark" onClick={this.continue}>
+              Use this video
+            </button>
+          ) : null}
         </div>
       </div>
     );

@@ -1,6 +1,9 @@
 body {
   background: #3e138a;
 }
+.prevImg video {
+  height: 170px !important;
+}
 .modal-dialog {
   max-width: 800px !important;
 }
@@ -113,15 +116,6 @@ button#fileUpload {
 
 .preview_col_img {
   position: relative;
-}
-
-.prevIcon {
-  position: absolute;
-  z-index: 999;
-  width: 50px;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
 }
 
 span.copyIocn img {

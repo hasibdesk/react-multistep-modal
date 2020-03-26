@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import recordimg from '../../assets/images/camera.png';
+import React, { Component } from "react";
+import recordimg from "../../assets/images/camera.png";
 
 export default class RecordVideo extends Component {
-  componentDidMount() {
-    this.props.modalHeader('Record Your Video');
-  }
+  componentDidMount = () => this.props.modalHeader("Record Your Video");
+
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -19,7 +18,12 @@ export default class RecordVideo extends Component {
             </div>
             <div className="uploadBTN recordBtn">
               <h4>Click Here To Record</h4>
-              <button type="button" className="btn btn-blue-dark" id="fileUpload" onClick={this.continue}>
+              <button
+                type="button"
+                className="btn btn-blue-dark"
+                id="fileUpload"
+                onClick={this.continue}
+              >
                 Record
               </button>
             </div>

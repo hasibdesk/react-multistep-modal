@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
-import play from '../../assets/images/play.svg';
-import copy from '../../assets/images/copy.svg';
-import add from '../../assets/images/add.png';
-import thumb3 from '../../assets/images/banner.jpg';
-
+import React, { Component } from "react";
+import copy from "../../assets/images/copy.svg";
+import add from "../../assets/images/add.png";
+import thumb3 from "../../assets/images/banner.jpg";
 export default class VideoDetail extends Component {
-  componentDidMount() {
-    this.props.modalHeader('Provide Video Detail');
-  }
-  handleSubmit = e => {
-    console.log(this.props.values);
-  };
+  componentDidMount = () => this.props.modalHeader("Provide Video Detail");
+  handleSubmit = e => console.log(this.props.values);
+
   render() {
     const { values, handleChange } = this.props;
     return (
@@ -23,29 +18,35 @@ export default class VideoDetail extends Component {
                   <h5>Details</h5>
                   <form>
                     <div className="form-group">
-                      <label htmlFor="exampleInputEmail1">Title (required field)</label>
+                      <label htmlFor="exampleInputEmail1">
+                        Title (required field)
+                      </label>
                       <input
                         type="text"
                         className="form-control"
                         placeholder="Add Video Title Here"
-                        onChange={handleChange('title')}
+                        onChange={handleChange("title")}
                         defaultValue={values.title}
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="exampleInputPassword1">Descriptions</label>
+                      <label htmlFor="exampleInputPassword1">
+                        Descriptions
+                      </label>
                       <textarea
                         className="form-control"
                         placeholder="Tell something video descriptions here"
-                        onChange={handleChange('description')}
+                        onChange={handleChange("description")}
                         defaultValue={values.description}
                       ></textarea>
                     </div>
                   </form>
                   <h5>Thumbnails</h5>
                   <p className="addionalText">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum natus omnis optio quo laborum vero soluta dolore,
-                    quibusdam, quod officiis veritatis quis quos. Quae assumenda impedit accusantium inventore aliquam enim!{' '}
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Harum natus omnis optio quo laborum vero soluta dolore,
+                    quibusdam, quod officiis veritatis quis quos. Quae assumenda
+                    impedit accusantium inventore aliquam enim!{" "}
                     <a href="/">Read More</a>
                   </p>
                   <div className="row videoThumb">
@@ -72,19 +73,18 @@ export default class VideoDetail extends Component {
                     <div className="preview_col">
                       <div className="preview_col_img">
                         <div className="prevImg">
-                          <img src={thumb3} className="img-fluid" alt="" />
-                        </div>
-                        <div className="prevIcon">
-                          <a href="/" className="play_icon">
-                            <img src={play} alt="" />
-                          </a>
+                          <video
+                            controls
+                            autoPlay={false}
+                            src={URL.createObjectURL(this.props.videoBlob)}
+                          />
                         </div>
                       </div>
                       <div className="preview_meta">
                         <h6>Video URL</h6>
                         <p>
                           <a href="/">
-                            https://videoly.ly/xydssdlkd{' '}
+                            https://videoly.ly/xydssdlkd
                             <span className="copyIocn">
                               <img src={copy} alt="" />
                             </span>
@@ -99,8 +99,11 @@ export default class VideoDetail extends Component {
               </div>
             </div>
             <div className="nextPrevBtn">
-              <button onClick={this.handleSubmit} className="next btn btn-blue-dark">
-                Save Video
+              <button
+                onClick={this.handleSubmit}
+                className="next btn btn-blue-dark"
+              >
+                Upload
               </button>
             </div>
           </div>

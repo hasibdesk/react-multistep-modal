@@ -10,9 +10,7 @@ export class MainModal extends Component {
     modalHeader: "",
     title: "",
     description: "",
-    videoBlob: "",
-    isRecode: true,
-    recodeIsOpen: false
+    videoBlob: ""
   };
 
   // Process to Next Step
@@ -25,26 +23,18 @@ export class MainModal extends Component {
     const { step } = this.state;
     this.setState({ step: step - 1 });
   };
-  modalHeader = title => {
-    this.setState({
-      modalHeader: title
-    });
-  };
+
+  // Handle modal Header
+  modalHeader = title => this.setState({ modalHeader: title });
   // Handle input fields changes
-  handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
-  };
+  handleChange = input => e => this.setState({ [input]: e.target.value });
+  // Get Video Blob
+  saveVideoBlob = videoBlob => this.setState({ videoBlob });
 
   render() {
     const { step } = this.state;
-    const {
-      title,
-      description,
-      videoBlob,
-      isRecode,
-      recodeIsOpen
-    } = this.state;
-    const values = { title, description, videoBlob, isRecode, recodeIsOpen };
+    const { title, description, videoBlob } = this.state;
+    const values = { title, description, videoBlob };
 
     switch (step) {
       case 1:
@@ -76,6 +66,7 @@ export class MainModal extends Component {
               <RecordPreview
                 values={values}
                 modalHeader={title => this.modalHeader(title)}
+                handleVideo={this.saveVideoBlob}
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}
               />
@@ -95,6 +86,7 @@ export class MainModal extends Component {
               <VideoDetail
                 handleChange={this.handleChange}
                 values={values}
+                videoBlob={videoBlob}
                 modalHeader={title => this.modalHeader(title)}
               />
               ;
