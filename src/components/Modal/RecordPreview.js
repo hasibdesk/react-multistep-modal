@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import VideoRecorder from "react-video-recorder";
 export default class RecordPreview extends Component {
   state = { videoBlob: "", good: false };
-  componentDidMount = () => this.props.modalHeader("Preview Your Video");
+  componentDidMount = () => this.props.modalHeader("Record Your Video");
 
   continue = e => {
     e.preventDefault();
@@ -22,9 +22,8 @@ export default class RecordPreview extends Component {
               <VideoRecorder
                 isOnInitially
                 showReplayControls
-                replayVideoAutoplayAndLoopOff
-                isReplayVideoInitiallyMuted={false}
                 onRecordingComplete={videoBlob => {
+                  this.props.modalHeader("Preview Your Video");
                   this.setState({ good: true });
                   this.setState({ videoBlob: videoBlob });
                   this.setState({ recodeIsOpen: false, isRecode: false });
